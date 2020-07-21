@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one{
+            width: 200px;
+            height: 200px;
+            border:1px solid red;
+            position: relative;
+        }
+        .two{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="one">
+        <div class="two"></div>
+    </div>
+
+    <script src="./drag.js"></script>
+    <script>
+        //drag 参数为选择器
+        // .side.x1代表x轴拖拽范围最小值，.side.x2代表x轴范围最大值
+        // .side.y1代表y轴拖拽范围最小值，.side.y2代表y轴范围最大值
+        // .y或.x 代表是否可在y或x轴拖拽
+        // .move() 调用拖拽函数 存在参数时，代表拖拽后的状态
+        var dragObj=new drag(".two");
+        // dragObj.y=false;
+        dragObj.side.y1=0;
+        dragObj.side.y2=170;
+        dragObj.move(function(){
+            dragObj.ele.style.background="red";
+        });
+    </script>
+</body>
+</html>
